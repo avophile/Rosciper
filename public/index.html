@@ -8,22 +8,6 @@
     <title>ROSCIPER</title>
     <link rel="stylesheet" href="dependencies/style.css">
     <script src="dependencies/script.js"></script>
-    <script>
-        function timer(){
-            var timeleft = 10;
-            var downloadTimer = setInterval(function(){
-                document.getElementById("countdown").innerHTML = timeleft - 7;
-                timeleft -= 1;
-                if(timeleft <= 6){
-                    document.getElementById("countdown").innerHTML = "Go!"
-                    }
-                if(timeleft <= 0){
-                    clearInterval(downloadTimer);
-                    document.getElementById("countdown").innerHTML = "Ready?"  // resets the element to ready
-                    }
-            }, 1000);
-        }
-    </script>
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
 </head>
 
@@ -40,15 +24,13 @@
         <span id="p2score">0</span>
     </div>
 
-    <div class="result"></div>
-    <p>PAPER>ROCK=P1VICTORY!</p>
-    </div>
-
     <div class="start">
-        <input type="image" src="dependencies/images/start_button.jpg" onclick="timer()"></input>
+        <input type="image" src="dependencies/images/start_button.jpg" onclick="countdownTimer()"></input>
     </div>
 
-    <div class="countdown" id="countdown">Ready?</div>
+    <div class="countdown" id="countdown">Press ^^^ to start!<br></br>Ready?</div>
+
+    <div class="result" id="result"></div>
 
     <div class="choices">
         <div id="r" class="choice">
@@ -60,6 +42,17 @@
         <div id="p" class="choice">
             <input type="image" img src="dependencies/images/paper.png" alt="" name="playPaper" class="playPaper" id="playPaper" onclick="playPaper(1)"/>
         </div>
+    </div>
+
+    <div class="computer_stupidity_level" id = "computer_stupidity_level">
+        <p>How stupid do you want the machine to be?</p>
+        <button onclick="machineStrategy(1)">Dumb as a rock</button>
+        <button onclick="machineStrategy(2)">Stupid as scissors</button>
+        <button onclick="machineStrategy(3)">Pathetic as paper</button>
+        <button onclick="machineStrategy(4)">Average random idiot</button>
+        <button onclick="machineStrategy(5)">Predictably imbecilic</button>
+        <button onclick="machineStrategy(6)">Pretty dumb, but smarter than you</button>
+        <!--If no choice is made, machine should play Spock and automatically win!-->
     </div>
 </body>
 

@@ -1,3 +1,35 @@
+function machineStrategy(num){
+    console.log("The player made the computer deploy strategy number " + num + ".");
+    switch (num) {
+    case '1':
+        call getRock();
+        break;
+    case '2':
+        call getScissors();
+        break;
+    case '3':
+        call getPaper();
+        break; 
+    case '4':
+        call getMachineRandomChoice();
+        break;
+    case '5':
+        call trackAndCounterOpponentPreviousChoice(choice1);
+        break;
+    case '6':
+        call decayPreviousChoiceValues(choice1);
+        break;
+    default:
+        call getSpock();
+    }
+}
+
+// Function computer plays spock and wins automatically
+function getSpock(){
+    var choices = ["Spock!"];
+    return choices;
+}
+
 // Function computer chooses rock
 function getRock() {
     var choices = ["r", "s", "p"];
