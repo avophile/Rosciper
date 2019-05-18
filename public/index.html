@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="setMachineStrategy(4)">
 
     <header>
         <h1>ROCK/SCISSORS/PAPER</h1>
@@ -46,12 +46,12 @@
 
     <div class="computer_stupidity_level" id = "computer_stupidity_level">
         <p>How stupid do you want the machine to be?</p>
-        <button onclick="machineStrategy(1)">Dumb as a rock</button>
-        <button onclick="machineStrategy(2)">Stupid as scissors</button>
-        <button onclick="machineStrategy(3)">Pathetic as paper</button>
-        <button onclick="machineStrategy(4)">Average random idiot</button>
-        <button onclick="machineStrategy(5)">Predictably imbecilic</button>
-        <button onclick="machineStrategy(6)">Pretty dumb, but smarter than you</button>
+        <button onclick="setMachineStrategy(1)">Dumb as a rock</button>
+        <button onclick="setMachineStrategy(2)">Stupid as scissors</button>
+        <button onclick="setMachineStrategy(3)">Pathetic as paper</button>
+        <button onclick="setMachineStrategy(4)">Average random idiot</button>
+        <button onclick="setMachineStrategy(5)">Predictably imbecilic</button>
+        <button onclick="setMachineStrategy(6)">Pretty dumb, but smarter than you</button>
         <!--If no choice is made, machine should play Spock and automatically win!-->
     </div>
 </body>

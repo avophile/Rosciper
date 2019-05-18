@@ -3,12 +3,15 @@ function machineStrategy(num){
     switch (num) {
     case '1':
         call getRock();
+        console.log("dumb as a rock");
         break;
     case '2':
         call getScissors();
+        console.log("stupid as scissors");
         break;
     case '3':
         call getPaper();
+        console.log("pathetic as paper");
         break; 
     case '4':
         call getMachineRandomChoice();
