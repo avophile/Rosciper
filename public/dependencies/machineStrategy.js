@@ -1,27 +1,33 @@
-function machineStrategy(num){
-    console.log("The player made the computer deploy strategy number " + num + ".");
+function selectMachineStrategy(num){
     switch (num) {
     case '1':
-        call getRock();
+        machineChoice = getRock();
         break;
     case '2':
-        call getScissors();
+        machineChoice = getScissors();
         break;
     case '3':
-        call getPaper();
+        machineChoice = getPaper();
         break; 
     case '4':
-        call getMachineRandomChoice();
+        machineChoice = getMachineRandomChoice();
         break;
     case '5':
-        call trackAndCounterOpponentPreviousChoice(choice1);
+        machineChoice = trackAndCounterOpponentPreviousChoice(choice1);
         break;
     case '6':
-        call decayPreviousChoiceValues(choice1);
+        machineChoice = decayPreviousChoiceValues(choice1);
         break;
-    default:
-        call getSpock();
+    case '7':
+        machineChoice = getSpock();
+        break;
+    case '8':
+        machineChoice = getFU();
+        break;
+    default: 
+        machineChoice = getMachineRandomChoice();
     }
+    console.log("The player selected strategy number " + num + ", " + machineChoice + " for the machine.");
 }
 
 // Function computer plays spock and wins automatically
