@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ROSCIPER</title>
     <link rel="stylesheet" href="dependencies/style.css">
-    <script src="dependencies/script.js"></script>
+    <script src="dependencies/playerChoice.js"></script>
+    <script src="dependencies/machineStrategy.js"></script>
+    <script src="dependencies/compare.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
 </head>
 
-<body>
+<body><!--</body> onload=setMachineStrategy(4)> sets default computer strategy to random>-->
 
     <header>
         <h1>ROCK/SCISSORS/PAPER</h1>
@@ -34,26 +36,34 @@
 
     <div class="choices">
         <div id="r" class="choice">
-            <input type="image" img src="dependencies/images/rock.png" alt="" name="playRock" class="playRock" id="playRock" onclick="playRock(1)"/>
+            <input type="image" img src="dependencies/images/rock.png" alt="" name="playRock" class="playRock" id="playRock" onclick="playerPlayRock(1)"/>
         </div>
         <div id="s" class="choice">
-            <input type="image" img src="dependencies/images/scissors.png" alt="" name="playScissors" class="playScissors" id="playScissors" onclick="playScissors(1)"/>
+            <input type="image" img src="dependencies/images/scissors.png" alt="" name="playScissors" class="playScissors" id="playScissors" onclick="playerPlayScissors(1)"/>
         </div>
         <div id="p" class="choice">
-            <input type="image" img src="dependencies/images/paper.png" alt="" name="playPaper" class="playPaper" id="playPaper" onclick="playPaper(1)"/>
+            <input type="image" img src="dependencies/images/paper.png" alt="" name="playPaper" class="playPaper" id="playPaper" onclick="playerPlayPaper(1)"/>
         </div>
     </div>
 
     <div class="computer_stupidity_level" id = "computer_stupidity_level">
         <p>How stupid do you want the machine to be?</p>
-        <button onclick="machineStrategy(1)">Dumb as a rock</button>
-        <button onclick="machineStrategy(2)">Stupid as scissors</button>
-        <button onclick="machineStrategy(3)">Pathetic as paper</button>
-        <button onclick="machineStrategy(4)">Average random idiot</button>
-        <button onclick="machineStrategy(5)">Predictably imbecilic</button>
-        <button onclick="machineStrategy(6)">Pretty dumb, but smarter than you</button>
+        <button onclick="selectMachineStrategy(1)">Dumb as a rock</button>
+        <button onclick="selectMachineStrategy(2)">Stupid as scissors</button>
+        <button onclick="selectMachineStrategy(3)">Pathetic as paper</button>
+        <button onclick="selectMachineStrategy(4)">Average random idiot</button>
+        <button onclick="selectMachineStrategy(5)">Predictably imbecilic</button>
+        <button onclick="selectMachineStrategy(6)">Pretty dumb, but smarter than you</button>
         <!--If no choice is made, machine should play Spock and automatically win!-->
     </div>
+<script>
+    document.addEventListener("DOMContentLoaded", 
+        function() {
+            selectMachineStrategy(4);
+            },
+        console.log("Default strategy loaded.")
+    );
+  </script>
 </body>
 
 </html>

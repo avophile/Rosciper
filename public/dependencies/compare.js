@@ -1,63 +1,3 @@
-//Countdown function
-function countdownTimer(){
-    var rsp = [ "Go!", "Paper...", "Scissors..", "Rock."]
-    var timeleft = 3.5;
-    var downloadTimer = setInterval(function(){
-        document.getElementById("countdown").innerHTML = rsp[timeleft-.5]; // hack to make the rendering of the countdown look better
-        timeleft -= 1;
-        if(timeleft <= 0){
-            document.getElementById("countdown").innerHTML = "Go!";
-            clearInterval(downloadTimer);
-            }
-    }, 1000);
-}
-
-//Function to randomise computer choice
-function getMachineInput() {
-    var choices = ["r", "s", "p"];
-    var rng = Math.floor(Math.random()*3);
-    return choices[rng];
-}
-
-//Player1&2 and machine choices
-//var machineInput = getMachineInput();
-var player1choice = ["r", "s", "p"];
-var player2choice = ["r", "s", "p"];
-
-
-function playRock(num){
-    if (num === 1){
-        playerOneChoice = player1choice[0];
-    }
-    if (num === 2){
-        playerTwoChoice = player2choice[0];
-    }
-    var machineInput = getMachineInput();
-    compare(playerOneChoice, machineInput);
-}
-
-function playScissors(num){
-    if (num === 1){
-        playerOneChoice = player1choice[1];
-    }
-    if (num === 2){
-        playerTwoChoice = player2choice[1];
-    }
-    var machineInput = getMachineInput();
-    compare(playerOneChoice, machineInput);
-}
-
-function playPaper(num){
-    if (num === 1){
-        playerOneChoice = player1choice[2];
-    }
-    if (num === 2){
-        playerTwoChoice= player2choice[2];
-    }
-    var machineInput = getMachineInput();   
-    compare(playerOneChoice, machineInput);
-}
-
 //Compare player1, player2 or machine answers together
 function compare(choice1, choice2) {
     if (choice2 == "Spock"){
@@ -110,6 +50,3 @@ function compare(choice1, choice2) {
             }
     }
 }
-
-//init comparison
-compare(playerOneChoice, machineInput);
