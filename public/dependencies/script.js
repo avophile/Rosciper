@@ -1,8 +1,9 @@
 //Countdown function
 function countdownTimer(){
+    var rsp = [ "Go!", "Paper...", "Scissors..", "Rock."]
     var timeleft = 3.5;
     var downloadTimer = setInterval(function(){
-        document.getElementById("countdown").innerHTML = timeleft-.5; // hack to make the rendering of the countdown look better
+        document.getElementById("countdown").innerHTML = rsp[timeleft-.5]; // hack to make the rendering of the countdown look better
         timeleft -= 1;
         if(timeleft <= 0){
             document.getElementById("countdown").innerHTML = "Go!";
