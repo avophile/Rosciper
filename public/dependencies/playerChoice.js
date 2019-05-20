@@ -15,6 +15,9 @@ function countdownTimer(){
 //Player gesture options
 
 var gestureOptions = ["r", "s", "p"];
+var rockCount = 0;
+var scissorsCount = 0;
+var paperCount = 0;
 
 function playerPlayRock(num){
     if (num === 1){
