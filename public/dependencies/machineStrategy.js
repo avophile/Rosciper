@@ -5,25 +5,16 @@ function selectMachineStrategy(num){
     return machineStrategySelection;
 }
 
-function getMachineChoice(machineStrategySelection){
-    machineStrategyFunctionNumber=machineStrategySelection;
-    console.log(machineStrategyFunctionNumber);
-    machineChoice = machineStrategyFunctions.machineStrategyFunctionNumber;
+// machine's strategy is implemented to produc machine's choice
+function getMachineChoice(num){ 
+    machineStrategyFunctionNumber = num;
+    strategiesxxx= ["zero", "one", "two", "three","four"];
+    let n = strategiesxxx[num];
+    console.log("machineStrategyFunctionNumber is " + num + " and n is " + n + "."); 
+    machineChoice = machineStrategyFunctions.call(n);   // why is .num not a function?
     console.log("machineChoice is " + machineChoice)
     compare(playerOneChoice, machineChoice);
 }   
-
-/*function executeMachineStrategy(machineStrategySelection){
-    machineStrategyFunctionNumber=machineStrategySelection;
-    machineStrategyFunctions.machineStrategyFunctionNumber;
-    console.log("The machine called strategy function number " + machineStrategyFunctionNumber + ", " + machineStrategyFunctions[machineStrategyFunctionNumber] + ".");
-    return ;
-}*/
-
-//Function to randomise computer choice
-function getRandomMachineStrategy() {
-    selectMachineStrategy(Math.floor(Math.random()*8));
-}
 
 var machineStrategyFunctions = { // array stores all the machines strategies
 
@@ -33,26 +24,26 @@ var machineStrategyFunctions = { // array stores all the machines strategies
     },
 
     // Function 1: computer chooses rock
-    1: function getRock() {
+    one: function getRock() {
         var choices = ["r", "s", "p"];
         console.log("r");
         return choices[0];
     },
 
     // Function 2: computer chooses scissors
-    2: function getScissors() {
+    two: function getScissors() {
         var choices = ["r", "s", "p"];
         return choices[1];
     },
 
     // Function 3: computer chooses paper
-    3: function getPaper () {
+    three: function getPaper () {
         var choices = ["r", "s", "p"];
         return choices[2];
     },
 
     // Function 4: to randomize computer choice
-    4: function getMachineRandomChoice () {
+    four: function getMachineRandomChoice () {
         var choices = ["r", "s", "p"];
         var rng = Math.floor(Math.random()*3);
         return choices[rng];
