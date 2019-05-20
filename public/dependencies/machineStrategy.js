@@ -5,52 +5,41 @@ function selectMachineStrategy(num){
     return machineStrategySelection;
 }
 
-// machine's strategy is implemented to produc machine's choice
-function getMachineChoice(num){ 
-    machineStrategyFunctionNumber = num;
-    strategiesxxx= ["zero", "one", "two", "three","four"];
-    let n = strategiesxxx[num];
-    console.log("machineStrategyFunctionNumber is " + num + " and n is " + n + "."); 
-    machineChoice = machineStrategyFunctions.call(n);   // why is .num not a function? tried .num()  .(num.toString())()
-    console.log("machineChoice is " + machineChoice)
-    compare(playerOneChoice, machineChoice);
-}   
-
 var machineStrategyFunctions = { // array stores all the machines strategies
 
-    // Function 0: computer plays Spock and wins automatically
-    0: function getSpock (){
+    // Function 0: computer plays Spock and wins automatically // TO DO change to both players choose SPock!
+    0: function(){
         return "Spock!";
     },
 
     // Function 1: computer chooses rock
-    one: function getRock() {
+    1: function() {
         var choices = ["r", "s", "p"];
         console.log("r");
         return choices[0];
     },
 
     // Function 2: computer chooses scissors
-    two: function getScissors() {
+    2: function() {
         var choices = ["r", "s", "p"];
         return choices[1];
     },
 
     // Function 3: computer chooses paper
-    three: function getPaper () {
+    3: function() {
         var choices = ["r", "s", "p"];
         return choices[2];
     },
 
     // Function 4: to randomize computer choice
-    four: function getMachineRandomChoice () {
+    4: function() {
         var choices = ["r", "s", "p"];
         var rng = Math.floor(Math.random()*3);
         return choices[rng];
     },
 
     // Function 5: to track and counter opponents previous choices 
-    5: function trackAndCounterOpponentPreviousChoice (choice1){
+    5: function(choice1){
         var previousChoices = [rockCount, paperCount, scissorsCount];
         console.log("The previous choices were " + previousChoices);
 
@@ -72,7 +61,7 @@ var machineStrategyFunctions = { // array stores all the machines strategies
     },
 
     //  Function 6: with a decaying score. It is more influenced by recent outcomes than past ones and adapts to a slowly changing opponent. It also reduces the score of the move that would have lost. So, for example, if the opponent played rock, the score for paper would increase, but the score for scissors would decrease.
-    6: function decayPreviousChoiceValues (choice1){
+    6: function(previousChoice1){
         if (!choiceRatings){
             let rockRating = 0;
             let scissorsRating = 0;
@@ -84,22 +73,22 @@ var machineStrategyFunctions = { // array stores all the machines strategies
             scissorsRating *= 0.95;
             paperRating *= 0.95;
             
-            if (choice1 === "r"){
+            if (previousChoice1 === "r"){
                 paperRating += 0.1;
                 scissorsRating -= 0.1;
-            } else if (choice1 === "s"){
+            } else if (previousChoice1 === "s"){
                 rockRating += 0.1;
                 paperRating -= 0.1;
-            } else if (choice1 === "p"){
+            } else if (previousChoice1 === "p"){
                 scissorsRating += 0.1;
                 rockRating -= 0.1;
             }
             console.log("The choice ratings are: " + choiceRatings);
-            let randNum = ((random.random())*(math.exp(rockRating))+(math.exp(scissorsRating))+(math.exp(paperRating))); // TODO translate from Python!
+            let randNum = ((random.random())*(Math.exp(rockRating))+(Math.exp(scissorsRating))+(Math.exp(paperRating))); // TODO translate from Python!
 
-            if (randNum < (math.exp(rockRating))){
+            if (randNum < (Math.exp(rockRating))){
                 return "r";
-            } else if ((randNum < (math.exp(rockRating))) && (randNum < (math.exp(paperRating)))){
+            } else if ((randNum < (Math.exp(rockRating))) && (randNum < (Math.exp(paperRating)))){
                 return "p";
             } else {
                 return "s";
@@ -108,9 +97,19 @@ var machineStrategyFunctions = { // array stores all the machines strategies
     },
 
     // Function 7: computer plays FU and wins automatically
-    7: function getFU (){
+    7: function(){
         var choices = ["FU!"];
         return choices;
     }
 };
 
+// machine's strategy is implemented to produce machine's choice
+function getMachineChoice(num){ 
+    machineStrategyFunctionNumber = num;
+    strategyFunctionNumbers= [0,1,2,3,4,5,6,7,8];
+    let n = strategyFunctionNumbers[machineStrategyFunctionNumber];
+    console.log("machineStrategyFunctionNumber is " + num + " and n is " + n + "."); 
+    machineChoice = machineStrategyFunctions[strategyFunctionNumbers[machineStrategyFunctionNumber]]();   // why is .num not a function? tried .num()  .(num.toString())()
+    console.log("machineChoice is " + machineChoice)
+    compare(playerOneChoice, machineChoice);
+} 
