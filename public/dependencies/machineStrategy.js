@@ -11,7 +11,7 @@ function getMachineChoice(num){
     strategiesxxx= ["zero", "one", "two", "three","four"];
     let n = strategiesxxx[num];
     console.log("machineStrategyFunctionNumber is " + num + " and n is " + n + "."); 
-    machineChoice = machineStrategyFunctions.call(n);   // why is .num not a function?
+    machineChoice = machineStrategyFunctions.call(n);   // why is .num not a function? tried .num()  .(num.toString())()
     console.log("machineChoice is " + machineChoice)
     compare(playerOneChoice, machineChoice);
 }   
