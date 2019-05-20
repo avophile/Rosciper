@@ -23,7 +23,7 @@ function playerPlayRock(num){
     if (num === 2){
         playerTwoChoice = gestureOptions[0];
     }
-    getMachineChoice();
+    getMachineChoice(machineStrategySelection);
     return playerOneChoice;
 }
 
@@ -34,7 +34,7 @@ function playerPlayScissors(num){
     if (num === 2){
         playerTwoChoice = gestureOptions[1];
     }
-    getMachineChoice();
+    getMachineChoice(machineStrategySelection);
     return playerOneChoice;
 }
 
@@ -45,6 +45,6 @@ function playerPlayPaper(num){
     if (num === 2){
         playerTwoChoice= gestureOptions[2];
     }
-    getMachineChoice();
+    getMachineChoice(machineStrategySelection);
     return playerOneChoice;
 }
